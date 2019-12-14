@@ -1,0 +1,91 @@
+// 扩大点击区域
+.extend-click() {
+  position: relative;
+  &::before {
+    content: ' ';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+  }
+}
+
+.border-1px(@color:#f5f5f5f) {
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    border-bottom: ~"1rpx" solid @color;
+  }
+}
+
+//文字不换行
+.no-wrap() {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+//倒三角
+.inverted-triangle(@color:#a4a4a4) {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid @color;
+  }
+}
+
+//向右的箭头
+.right-arrow(@color:#ccc) {
+  position: relative;
+  &::after {
+    position: absolute;
+    top: calc((100% - 8px) / 2); //6 + 2 = 8    高度6 + 一个border-width 2
+    right: 0;
+    content: '';
+    display: inline-block;
+    height: 6px;
+    width: 6px;
+    border-width: 2px 2px 0 0;
+    border-color: @color;
+    border-style: solid;
+    transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+  }
+}
+
+//卡片的阴影
+.card-shadow(@color:#e0e0e0) {
+  box-shadow: 3px 5px 5px @color;
+}
+
+//item前面的一个小圆
+.circle(@bgColor:#3cbca3) {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: @bgColor;
+}
+
+.long-btn(@color:#fff,@bgColor:#4a4c5b) {
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  color: @color;
+  background-color: @bgColor;
+  font-size: 18px;
+}
